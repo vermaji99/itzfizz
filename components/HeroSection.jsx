@@ -73,11 +73,9 @@ export default function HeroSection() {
       scrollTL.fromTo(
         objectRef.current,
         { xPercent: 60, scale: 1, opacity: 1 },
-        { xPercent: -160, scale: 1, opacity: 0, force3D: true, ease: "none" },
+        { xPercent: -200, scale: 1, opacity: 0, force3D: true, ease: "none" },
         0
       );
-      scrollTL.set(objectRef.current, { xPercent: 160, opacity: 0 }, 0.55);
-      scrollTL.to(objectRef.current, { xPercent: 0, opacity: 1, force3D: true, ease: "none" }, 0.6);
 
       scrollTL.to(bgShiftRef.current, { xPercent: -6, force3D: true, ease: "none" }, 0);
 
@@ -130,7 +128,14 @@ export default function HeroSection() {
 
       <div className="relative z-10 h-full flex items-center">
         <div className="container-bounds w-full text-center flex flex-col items-center justify-center">
-        <h1 ref={headlineRef} className="font-playfair text-3xl sm:text-5xl md:text-7xl max-[480px]:text-2xl tracking-[0.18em] sm:tracking-[0.32em] md:tracking-[0.45em] max-[480px]:tracking-[0.12em] font-medium text-neutral-200 mb-6 sm:mb-8 md:mb-10">
+        <h1
+          ref={headlineRef}
+          className="font-playfair font-medium text-neutral-200 leading-tight mb-5 sm:mb-8 md:mb-10 px-3 sm:px-2"
+          style={{
+            fontSize: "clamp(18px, 7vw, 72px)",
+            letterSpacing: "clamp(0.04em, 1.6vw, 0.45em)"
+          }}
+        >
           <span className="inline-flex items-center justify-center select-none">
             {word1.map((l, i) => (
               <span
@@ -141,7 +146,11 @@ export default function HeroSection() {
                 {l}
               </span>
             ))}
-            <span className="inline-block w-4 sm:w-10 md:w-16" aria-hidden="true" />
+            <span
+              className="inline-block"
+              style={{ width: "clamp(6px, 6vw, 64px)" }}
+              aria-hidden="true"
+            />
             {word2.map((l, i) => (
               <span
                 key={`char2-${i}-${l}`}
@@ -154,17 +163,17 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        <div className="mt-6 md:mt-10 w-full max-w-[1100px] flex justify-center items-stretch gap-4 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory px-1">
-          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px]">
-            <div ref={s1Ref} className="text-[#f3f4f6] text-[36px] sm:text-[40px] md:text-[44px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
+        <div className="mt-6 md:mt-10 w-full max-w-[1100px] flex justify-center items-stretch gap-4 sm:gap-6 md:gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory px-1 max-[480px]:flex-wrap max-[480px]:justify-center max-[480px]:overflow-visible max-[480px]:snap-none">
+          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px] max-[480px]:w-full">
+            <div ref={s1Ref} className="text-[#f3f4f6] text-[34px] sm:text-[40px] md:text-[44px] max-[480px]:text-[30px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
             <div className="mt-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-gray-300">Growth</div>
           </div>
-          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px]">
-            <div ref={s2Ref} className="text-[#f3f4f6] text-[36px] sm:text-[40px] md:text-[44px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
+          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px] max-[480px]:w-full">
+            <div ref={s2Ref} className="text-[#f3f4f6] text-[34px] sm:text-[40px] md:text-[44px] max-[480px]:text-[30px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
             <div className="mt-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-gray-300">Satisfaction</div>
           </div>
-          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px]">
-            <div ref={s3Ref} className="text-[#f3f4f6] text-[36px] sm:text-[40px] md:text-[44px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
+          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px] max-[480px]:w-full">
+            <div ref={s3Ref} className="text-[#f3f4f6] text-[34px] sm:text-[40px] md:text-[44px] max-[480px]:text-[30px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
             <div className="mt-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-gray-300">Projects</div>
           </div>
         </div>
