@@ -132,30 +132,30 @@ export default function HeroSection() {
           ref={headlineRef}
           className="font-playfair font-medium text-neutral-200 leading-tight mb-5 sm:mb-8 md:mb-10 px-3 sm:px-2"
           style={{
-            fontSize: "clamp(18px, 7vw, 72px)",
-            letterSpacing: "clamp(0.04em, 1.6vw, 0.45em)"
+            fontSize: "clamp(16px, 6.2vw, 64px)",
+            letterSpacing: "clamp(0.02em, 1vw, 0.38em)"
           }}
         >
           <span className="inline-flex items-center justify-center select-none">
             {word1.map((l, i) => (
               <span
                 key={`char-${i}-${l}`}
-                className="char inline-block mx-[0.20em]"
-                style={{ willChange: "transform, opacity" }}
+                className="char inline-block"
+                style={{ willChange: "transform, opacity", marginInline: "clamp(0.02em, 0.8vw, 0.20em)" }}
               >
                 {l}
               </span>
             ))}
             <span
               className="inline-block"
-              style={{ width: "clamp(6px, 6vw, 64px)" }}
+              style={{ width: "clamp(4px, 4.5vw, 48px)" }}
               aria-hidden="true"
             />
             {word2.map((l, i) => (
               <span
                 key={`char2-${i}-${l}`}
-                className="char inline-block mx-[0.20em]"
-                style={{ willChange: "transform, opacity" }}
+                className="char inline-block"
+                style={{ willChange: "transform, opacity", marginInline: "clamp(0.02em, 0.8vw, 0.20em)" }}
               >
                 {l}
               </span>
