@@ -4,8 +4,12 @@ import HeroSection from "../components/HeroSection";
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <section className="h-[200vh] bg-neutral-900"></section>
+      <section className="relative h-[300vh]">
+        <div className="h-screen">
+          <HeroSection />
+        </div>
+      </section>
+      <section className="h-[120vh] bg-neutral-900"></section>
     </>
   );
 }

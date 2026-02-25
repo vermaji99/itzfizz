@@ -12,6 +12,9 @@ export default function HeroSection() {
   const p1Ref = useRef(null);
   const p2Ref = useRef(null);
   const p3Ref = useRef(null);
+  const s1Ref = useRef(null);
+  const s2Ref = useRef(null);
+  const s3Ref = useRef(null);
   const [imgError, setImgError] = useState(false);
 
   const word1 = "WELCOME".split("");
@@ -53,51 +56,49 @@ export default function HeroSection() {
         autoAlpha: 0,
         y: 24,
         duration: 0.9,
-        ease: "power3.out",
-        stagger: { each: 0.055, from: "center" }
-      }).from(q(".stat"), {
-        autoAlpha: 0,
-        y: 16,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.15
-      }, "+=0.2");
+        ease: "power2.out",
+        stagger: { each: 0.05, from: "center" }
+      });
 
-      gsap.set(objectRef.current, { xPercent: 0 });
-      gsap.to(objectRef.current, {
-        xPercent: -180,
-        scale: 1.06,
-        force3D: true,
-        ease: "power3.out",
+      const scrollTL = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "bottom top",
-          scrub: 1.2
+          end: "+=200%",
+          pin: true,
+          scrub: 1
         }
       });
 
-      gsap.to(bgShiftRef.current, {
-        xPercent: -6,
-        force3D: true,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.9
-        }
-      });
+      scrollTL.to(
+        objectRef.current,
+        { xPercent: -120, scale: 1, force3D: true, ease: "none" },
+        0
+      );
 
-      gsap.to(headlineRef.current, {
-        opacity: 0.82,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.9
-        }
+      scrollTL.to(bgShiftRef.current, { xPercent: -6, force3D: true, ease: "none" }, 0);
+
+      scrollTL.to(headlineRef.current, { opacity: 0.7, scale: 0.98, ease: "none" }, 0.1);
+
+      const stats = q(".stat");
+      const ends = [120, 98, 250];
+      const suffixes = ["%", "%", "+"];
+      stats.forEach((el, idx) => {
+        const at = 0.3 + idx * 0.5;
+        scrollTL.from(el, { autoAlpha: 0, y: 16, duration: 0.6, ease: "power2.out" }, at);
+        scrollTL.add(() => {
+          const ref = [s1Ref.current, s2Ref.current, s3Ref.current][idx];
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: ends[idx],
+            duration: 1.2,
+            ease: "power2.out",
+            onUpdate: () => {
+              const v = Math.round(obj.val);
+              if (ref) ref.textContent = `${v}${suffixes[idx]}`;
+            }
+          });
+        }, at + 0.6);
       });
 
       gsap.to(p1Ref.current, { y: -18, x: 12, duration: 16, yoyo: true, repeat: -1, ease: "power1.inOut" });
@@ -153,15 +154,15 @@ export default function HeroSection() {
 
         <div className="mt-12 flex justify-center items-center gap-16 max-w-5xl mx-auto">
           <div className="stat text-center px-8 py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform min-w-[180px]">
-            <div className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
+            <div ref={s1Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
             <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Growth</div>
           </div>
           <div className="stat text-center px-8 py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform min-w-[180px]">
-            <div className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
+            <div ref={s2Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
             <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Satisfaction</div>
           </div>
           <div className="stat text-center px-8 py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform min-w-[180px]">
-            <div className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
+            <div ref={s3Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
             <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Projects</div>
           </div>
         </div>
