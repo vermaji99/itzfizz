@@ -126,9 +126,9 @@ export default function HeroSection() {
         <span ref={p3Ref} className="absolute left-[45%] top-[70%] w-1.5 h-1.5 rounded-full bg-cyan-100/20 will-change-transform"></span>
       </div>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
-        <div className="text-center mb-12 -mt-8 max-w-4xl mx-auto">
-        <h1 ref={headlineRef} className="font-playfair text-3xl sm:text-5xl md:text-7xl tracking-[0.18em] sm:tracking-[0.32em] md:tracking-[0.45em] font-medium text-neutral-200">
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container-bounds w-full text-center flex flex-col items-center justify-center">
+        <h1 ref={headlineRef} className="font-playfair text-3xl sm:text-5xl md:text-7xl max-[480px]:text-2xl tracking-[0.18em] sm:tracking-[0.32em] md:tracking-[0.45em] max-[480px]:tracking-[0.12em] font-medium text-neutral-200 mb-6 sm:mb-8 md:mb-10">
           <span className="inline-flex items-center justify-center select-none">
             {word1.map((l, i) => (
               <span
@@ -151,24 +151,24 @@ export default function HeroSection() {
             ))}
           </span>
         </h1>
-        </div>
 
-        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row justify-center items-stretch gap-6 sm:gap-10 md:gap-16 max-w-5xl mx-auto w-full px-2 sm:px-0">
-          <div className="stat text-center px-6 sm:px-8 py-5 sm:py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform w-full sm:w-auto min-w-[180px]">
-            <div ref={s1Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
-            <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Growth</div>
+        <div className="mt-8 md:mt-10 w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+          <div className="glass-card stat flex flex-col items-center justify-center text-center px-7 py-7 sm:px-8 sm:py-8 min-h-[140px]">
+            <div ref={s1Ref} className="text-[#f3f4f6] text-[42px] sm:text-[46px] md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
+            <div className="mt-2 text-xs sm:text-sm uppercase tracking-[0.18em] text-gray-300">Growth</div>
           </div>
-          <div className="stat text-center px-6 sm:px-8 py-5 sm:py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform w-full sm:w-auto min-w-[180px]">
-            <div ref={s2Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
-            <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Satisfaction</div>
+          <div className="glass-card stat flex flex-col items-center justify-center text-center px-7 py-7 sm:px-8 sm:py-8 min-h-[140px]">
+            <div ref={s2Ref} className="text-[#f3f4f6] text-[42px] sm:text-[46px] md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
+            <div className="mt-2 text-xs sm:text-sm uppercase tracking-[0.18em] text-gray-300">Satisfaction</div>
           </div>
-          <div className="stat text-center px-6 sm:px-8 py-5 sm:py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform w-full sm:w-auto min-w-[180px]">
-            <div ref={s3Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
-            <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Projects</div>
+          <div className="glass-card stat flex flex-col items-center justify-center text-center px-7 py-7 sm:px-8 sm:py-8 min-h-[140px]">
+            <div ref={s3Ref} className="text-[#f3f4f6] text-[42px] sm:text-[46px] md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
+            <div className="mt-2 text-xs sm:text-sm uppercase tracking-[0.18em] text-gray-300">Projects</div>
           </div>
         </div>
         <div className="pointer-events-none mt-8 h-24 w-[60%] max-w-xl mx-auto"
              style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0))", filter: "blur(12px)" }} />
+      </div>
       </div>
 
       <img
@@ -176,7 +176,7 @@ export default function HeroSection() {
         alt="Premium vehicle"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] pointer-events-none will-change-transform"
         style={{
-          width: "clamp(220px, 56vw, 780px)",
+          width: "min(90vw, 780px)",
           opacity: 0.92,
           filter: "drop-shadow(0 40px 55px rgba(0,0,0,0.65))"
         }}
