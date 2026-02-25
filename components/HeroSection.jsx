@@ -70,8 +70,9 @@ export default function HeroSection() {
         }
       });
 
-      scrollTL.to(
+      scrollTL.fromTo(
         objectRef.current,
+        { xPercent: 60, scale: 1 },
         { xPercent: -120, scale: 1, force3D: true, ease: "none" },
         0
       );
