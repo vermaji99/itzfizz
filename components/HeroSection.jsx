@@ -126,9 +126,9 @@ export default function HeroSection() {
         <span ref={p3Ref} className="absolute left-[45%] top-[70%] w-1.5 h-1.5 rounded-full bg-cyan-100/20 will-change-transform"></span>
       </div>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
         <div className="text-center mb-12 -mt-8 max-w-4xl mx-auto">
-        <h1 ref={headlineRef} className="font-playfair text-4xl sm:text-6xl md:text-7xl tracking-[0.45em] font-medium text-neutral-200">
+        <h1 ref={headlineRef} className="font-playfair text-3xl sm:text-5xl md:text-7xl tracking-[0.18em] sm:tracking-[0.32em] md:tracking-[0.45em] font-medium text-neutral-200">
           <span className="inline-flex items-center justify-center select-none">
             {word1.map((l, i) => (
               <span
@@ -139,7 +139,7 @@ export default function HeroSection() {
                 {l}
               </span>
             ))}
-            <span className="inline-block w-8 sm:w-12 md:w-16" aria-hidden="true" />
+            <span className="inline-block w-4 sm:w-10 md:w-16" aria-hidden="true" />
             {word2.map((l, i) => (
               <span
                 key={`char2-${i}-${l}`}
@@ -153,16 +153,16 @@ export default function HeroSection() {
         </h1>
         </div>
 
-        <div className="mt-12 flex justify-center items-center gap-16 max-w-5xl mx-auto">
-          <div className="stat text-center px-8 py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform min-w-[180px]">
+        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row justify-center items-stretch gap-6 sm:gap-10 md:gap-16 max-w-5xl mx-auto w-full px-2 sm:px-0">
+          <div className="stat text-center px-6 sm:px-8 py-5 sm:py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform w-full sm:w-auto min-w-[180px]">
             <div ref={s1Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
             <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Growth</div>
           </div>
-          <div className="stat text-center px-8 py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform min-w-[180px]">
+          <div className="stat text-center px-6 sm:px-8 py-5 sm:py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform w-full sm:w-auto min-w-[180px]">
             <div ref={s2Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
             <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Satisfaction</div>
           </div>
-          <div className="stat text-center px-8 py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform min-w-[180px]">
+          <div className="stat text-center px-6 sm:px-8 py-5 sm:py-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg hover:scale-105 hover:border-white/20 transition-transform duration-300 ease-out will-change-transform w-full sm:w-auto min-w-[180px]">
             <div ref={s3Ref} className="text-[#f3f4f6] text-4xl md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
             <div className="mt-2 text-sm uppercase tracking-widest text-gray-400">Projects</div>
           </div>
@@ -176,9 +176,7 @@ export default function HeroSection() {
         alt="Premium vehicle"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] pointer-events-none will-change-transform"
         style={{
-          width: "46vw",
-          maxWidth: 780,
-          minWidth: 320,
+          width: "clamp(220px, 56vw, 780px)",
           opacity: 0.92,
           filter: "drop-shadow(0 40px 55px rgba(0,0,0,0.65))"
         }}
