@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
-const path = require("path");
 const nextConfig = {
-  output: "export",
-  turbopack: {
-    root: path.resolve(__dirname)
-  }
+  output: "export"
 };
-
 module.exports = nextConfig;
