@@ -64,7 +64,7 @@ export default function HeroSection() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=200%",
+          end: "+=250%",
           pin: true,
           scrub: 1
         }
@@ -72,10 +72,12 @@ export default function HeroSection() {
 
       scrollTL.fromTo(
         objectRef.current,
-        { xPercent: 60, scale: 1 },
-        { xPercent: -120, scale: 1, force3D: true, ease: "none" },
+        { xPercent: 60, scale: 1, opacity: 1 },
+        { xPercent: -160, scale: 1, opacity: 0, force3D: true, ease: "none" },
         0
       );
+      scrollTL.set(objectRef.current, { xPercent: 160, opacity: 0 }, 0.55);
+      scrollTL.to(objectRef.current, { xPercent: 0, opacity: 1, force3D: true, ease: "none" }, 0.6);
 
       scrollTL.to(bgShiftRef.current, { xPercent: -6, force3D: true, ease: "none" }, 0);
 
@@ -152,18 +154,18 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        <div className="mt-8 md:mt-10 w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
-          <div className="glass-card stat flex flex-col items-center justify-center text-center px-7 py-7 sm:px-8 sm:py-8 min-h-[140px]">
-            <div ref={s1Ref} className="text-[#f3f4f6] text-[42px] sm:text-[46px] md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
-            <div className="mt-2 text-xs sm:text-sm uppercase tracking-[0.18em] text-gray-300">Growth</div>
+        <div className="mt-6 md:mt-10 w-full max-w-[1100px] flex justify-center items-stretch gap-4 sm:gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory px-1">
+          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px]">
+            <div ref={s1Ref} className="text-[#f3f4f6] text-[36px] sm:text-[40px] md:text-[44px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">120%</div>
+            <div className="mt-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-gray-300">Growth</div>
           </div>
-          <div className="glass-card stat flex flex-col items-center justify-center text-center px-7 py-7 sm:px-8 sm:py-8 min-h-[140px]">
-            <div ref={s2Ref} className="text-[#f3f4f6] text-[42px] sm:text-[46px] md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
-            <div className="mt-2 text-xs sm:text-sm uppercase tracking-[0.18em] text-gray-300">Satisfaction</div>
+          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px]">
+            <div ref={s2Ref} className="text-[#f3f4f6] text-[36px] sm:text-[40px] md:text-[44px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">98%</div>
+            <div className="mt-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-gray-300">Satisfaction</div>
           </div>
-          <div className="glass-card stat flex flex-col items-center justify-center text-center px-7 py-7 sm:px-8 sm:py-8 min-h-[140px]">
-            <div ref={s3Ref} className="text-[#f3f4f6] text-[42px] sm:text-[46px] md:text-5xl font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
-            <div className="mt-2 text-xs sm:text-sm uppercase tracking-[0.18em] text-gray-300">Projects</div>
+          <div className="glass-card stat snap-center flex flex-col items-center justify-center text-center px-5 py-5 sm:px-6 sm:py-6 min-h-[120px] min-w-[160px] sm:min-w-[180px]">
+            <div ref={s3Ref} className="text-[#f3f4f6] text-[36px] sm:text-[40px] md:text-[44px] font-semibold tracking-wide drop-shadow-[0_2px_6px_rgba(255,255,255,0.08)] leading-none">250+</div>
+            <div className="mt-2 text-[11px] sm:text-xs uppercase tracking-[0.18em] text-gray-300">Projects</div>
           </div>
         </div>
         <div className="pointer-events-none mt-8 h-24 w-[60%] max-w-xl mx-auto"
